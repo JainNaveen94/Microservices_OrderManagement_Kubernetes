@@ -1,0 +1,29 @@
+version: '3'
+services:
+    userservice:
+        image: naveenjain94/userservice
+        container_name: user_service
+        ports:
+            - "6000:6000"
+    
+    orderservice:
+        image: naveenjain94/orderservice
+        container_name: order_service
+        ports:
+            - "7000:7000"
+            
+    ordermanagementservice:
+        image: naveenjain94/order_management_service
+        container_name: order_management_service
+        ports:
+            - "8000:8000"
+        depends_on:
+            - userservice
+            - orderservice
+        links:
+            - userservice
+            - orderservice
+        environment:
+            USER_URI: 'http://userservice:6000/'
+            ORDER_URI: 'http://orderservice:7000/'
+        

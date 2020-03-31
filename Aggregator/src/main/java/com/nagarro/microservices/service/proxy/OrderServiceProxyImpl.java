@@ -18,7 +18,7 @@ public class OrderServiceProxyImpl {
 	private String orderServiceUrl;
 
 	public List<Order> getOrderListOfUser(long userId) {
-
+		System.out.println("><><><" + orderServiceUrl);
 		RestTemplate restTemplate = new RestTemplate();
 		try {
 			ResponseEntity<List<Order>> rateResponse = restTemplate.exchange(orderServiceUrl + "order/list/" +userId,
