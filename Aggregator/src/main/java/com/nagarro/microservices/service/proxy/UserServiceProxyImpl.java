@@ -18,7 +18,7 @@ public class UserServiceProxyImpl {
 	private String userServiceUrl;
 
 	public User getUser(long userId) {
-
+		System.out.println("><><><" + userServiceUrl);
 		RestTemplate restTemplate = new RestTemplate();
 		try {
 			ResponseEntity<User> rateResponse = restTemplate.exchange(userServiceUrl + "user/" +userId,
