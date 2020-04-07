@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+  namespace: default
+data:
+  initdb.sql: |
+    use ordermanagement;
+    CREATE TABLE user (id INT, name VARCHAR(145), email VARCHAR(145), age INT);
+    INSERT INTO user VALUES (1,'Naveen Jain','naveen.jain@nagarro.com',25);
+    INSERT INTO user VALUES (2,'Prabhi Singh','prabhi.singh@nagarro.com',24);
+    INSERT INTO user VALUES (3,'Gurpreet Singh','gurpreet.singh@nagarro.com',23);
+    INSERT INTO user VALUES (4,'Shubham Gupta','hubham.gupta@nagarro.com',24);

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: order-management-service
-        image: naveenjain94/order_management_service
+        image: naveenjain94/order_management_service:v2
         ports:
         - containerPort: 8000
         env:
@@ -30,3 +30,13 @@ spec:
             configMapKeyRef:
               name: order-management-config
               key: ORDER_URI
+        - name: JAEGER_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: jaeger-config
+              key: JAEGER_HOST
+        - name: JAEGER_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: jaeger-config
+              key: JAEGER_PORT

@@ -16,6 +16,17 @@ spec:
     spec:
       containers:
       - name: order-service
-        image: naveenjain94/orderservice
+        image: naveenjain94/order_service:v2
         ports:
         - containerPort: 7000
+        env:
+        - name: JAEGER_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: jaeger-config
+              key: JAEGER_HOST
+        - name: JAEGER_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: jaeger-config
+              key: JAEGER_PORT

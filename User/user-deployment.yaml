@@ -16,6 +16,37 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: naveenjain94/userservice
+        image: naveenjain94/user_service:v2
         ports:
         - containerPort: 6000
+        env:
+        - name: JAEGER_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: jaeger-config
+              key: JAEGER_HOST
+        - name: JAEGER_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: jaeger-config
+              key: JAEGER_PORT
+        - name: MYSQL_DB_URI
+          valueFrom:
+              configMapKeyRef:
+                name: mysql-config-uri
+                key: MYSQL_DB_URI
+        - name: MYSQL_DB_NAME
+          valueFrom:
+              configMapKeyRef:
+                name: mysql-config-uri
+                key: MYSQL_DB_NAME
+        - name: MYSQL_DB_USER
+          valueFrom:
+              configMapKeyRef:
+                name: mysql-config-uri
+                key: MYSQL_DB_USER
+        - name: MYSQL_DB_PASS
+          valueFrom:
+              configMapKeyRef:
+                name: mysql-config-uri
+                key: MYSQL_DB_PASS
