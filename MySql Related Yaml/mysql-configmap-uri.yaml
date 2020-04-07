@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config-uri
+  namespace: default
+data:
+  MYSQL_DB_URI: mysql-service
+  MYSQL_DB_NAME: ordermanagement
+  MYSQL_DB_USER: root
+  MYSQL_DB_PASS: password
